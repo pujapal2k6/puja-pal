@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CloudMart - AWS EC2 & S3 Powered Store</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+  <header class="navbar">
+    <div class="nav-container">
+      <div class="logo">
+        <i class="fa-solid fa-cloud"></i>
+        <span>CloudMart</span>
+      </div>
+      <div class="badge-aws">
+        <span class="status-dot"></span> Hosted on AWS EC2 & S3
+      </div>
+      <div class="cart-btn-wrapper" onclick="toggleCart()">
+        <button class="cart-btn">
+          <i class="fa-solid fa-cart-shopping"></i> Cart
+          <span id="cart-count">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Modern Goods Delivered Lightning Fast</h1>
+      <p>High performance store deployed on Amazon EC2 compute with assets on AWS S3.</p>
+    </div>
+  </section>
+
+  <main class="main-container">
+    <div class="catalog-header">
+      <h2>Featured Products</h2>
+      <div class="category-filters">
+        <button class="filter-btn active" onclick="filterProducts('all')">All</button>
+        <button class="filter-btn" onclick="filterProducts('Electronics')">Electronics</button>
+        <button class="filter-btn" onclick="filterProducts('Wearables')">Wearables</button>
+        <button class="filter-btn" onclick="filterProducts('Accessories')">Accessories</button>
+        <button class="filter-btn" onclick="filterProducts('Furniture')">Furniture</button>
+        <button class="filter-btn" onclick="filterProducts('Bags')">Bags</button>
+      </div>
+    </div>
+
+    <div id="product-grid" class="product-grid">
+      <!-- Dynamic Products -->
+    </div>
+  </main>
+
+  <!-- Cart Modal / Sidebar -->
+  <div id="cart-overlay" class="overlay" onclick="toggleCart()"></div>
+  <aside id="cart-drawer" class="cart-drawer">
+    <div class="cart-header">
+      <h3>Your Shopping Cart</h3>
+      <button class="close-btn" onclick="toggleCart()">&times;</button>
+    </div>
+    <div id="cart-items" class="cart-items">
+      <!-- Items dynamically added here -->
+    </div>
+    <div class="cart-footer">
+      <div class="total-row">
+        <span>Total:</span>
+        <span id="cart-total">$0.00</span>
+      </div>
+      <button class="checkout-btn" onclick="checkout()">Proceed to Checkout</button>
+    </div>
+  </aside>
+
+  <!-- Order Success Notification -->
+  <div id="toast" class="toast"></div>
+
+  <footer>
+    <p>&copy; 2026 CloudMart E-Commerce. AWS EC2 Cloud Infrastructure.</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
+
