@@ -1,10 +1,10 @@
 const express = require('express');
 const path = require('path');
 const app = express();
-const PORT = process.env.PORT || 80;
+const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(__dirname));
 
 // Sample product catalog
 // Optional: replace image URLs with your AWS S3 bucket object URLs
@@ -90,7 +90,7 @@ app.get('/health', (req, res) => {
 
 // Fallback to index.html for SPA
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+  res.sendFile(path.join(__dirname,'index.html'));
 });
 
 app.listen(PORT, '0.0.0.0', () => {
